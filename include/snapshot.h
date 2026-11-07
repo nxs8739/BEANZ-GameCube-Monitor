@@ -10,6 +10,15 @@ typedef enum {
     METRIC_AVAILABLE
 } metric_status_t;
 
+/* A positive response from the corresponding serial-port interface. */
+typedef enum {
+    SERIAL_NOT_OCCUPIED = 0,
+    SERIAL_OCCUPIED = 1
+} serial_presence_t;
+
+/* A positive response from the corresponding serial-port interface. */
+
+
 typedef struct {
     /* MEMORY */
     u32 mem1_size_bytes;
@@ -58,6 +67,11 @@ typedef struct {
     /* MEMORY CARDS: CARD_ERROR_* values */
     s32 card_init_status;
     s32 card_status[2];
+
+    /* SERIAL PORTS: response-based occupancy, not physical presence. */
+    serial_presence_t serial_port_status[2];
+
+    /* SERIAL PORTS: response-based occupancy, not physical presence. */
 
 } system_snapshot_t;
 
