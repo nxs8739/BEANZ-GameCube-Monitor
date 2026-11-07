@@ -29,7 +29,15 @@ BEANZ GameCube System Monitor provides a simple on-console overview of system in
 - SP1 status
 - SP2 status
 
-The monitor reports SP1 and SP2 occupancy status without attempting to identify attached device types or protocols.
+SP1 and SP2 show `OCCUPIED` when a supported device responds to a detection
+transaction and `NOT OCCUPIED` when no valid response is obtained. SP1 uses a
+fresh EXI identification transaction. SP2 checks for a responding SD card
+through SD2SP2, then attempts a standard EXI identification transaction.
+These statuses do not identify attached device types. SP2 has no physical
+presence-detect line, and passive adapters or unresponsive peripherals cannot
+always be distinguished from empty ports. A temporary EXI transaction failure
+retains the previous reading; the monitor does not claim universal physical
+presence detection.
 
 ## Interface
 
