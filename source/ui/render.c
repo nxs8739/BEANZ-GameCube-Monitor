@@ -225,8 +225,12 @@ static int build_devices_page(const system_snapshot_t *snap,
 
     add_line(lines, &count, "");
     add_line(lines, &count, "[ SERIAL PORTS ]");
-    add_line(lines, &count, "SP1: STATUS UNKNOWN");
-    add_line(lines, &count, "SP2: RESPONSE UNKNOWN");
+    add_line(lines, &count, "SP1: %s",
+             snap->serial_port_status[0] == SERIAL_OCCUPIED
+                 ? "OCCUPIED" : "NOT OCCUPIED");
+    add_line(lines, &count, "SP2: %s",
+             snap->serial_port_status[1] == SERIAL_OCCUPIED
+                 ? "OCCUPIED" : "NOT OCCUPIED");
 
     add_line(lines, &count, "");
     add_line(lines, &count, "L: SYSTEM      R: SYSTEM      START: EXIT");
@@ -299,3 +303,4 @@ void render_draw_snapshot(const system_snapshot_t *snap,
 
     s_previous_page = page;
 }
+
