@@ -1,4 +1,4 @@
-# BEANZ GameCube System Monitor 1.0
+# BEANZ GameCube System Monitor
 
 A lightweight Nintendo GameCube homebrew diagnostic application written in C using devkitPro, devkitPPC, and libogc 3.2.1.
 
